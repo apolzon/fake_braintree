@@ -13,6 +13,15 @@ describe 'Braintree::Customer.create' do
     expect(result).to be_success
   end
 
+  it 'can create a customer from a params hash containing an nonce token' do
+    result = Braintree::Customer.create(
+      first_name: 'Test',
+      last_name: 'User',
+      payment_method_nonce: 'test-nonce'
+    )
+    expect(result).to be_success
+  end
+
   it 'associates a created credit card with the customer' do
     result = Braintree::Customer.create(
       credit_card: {

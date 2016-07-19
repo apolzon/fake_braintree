@@ -212,7 +212,7 @@ module FakeBraintree
 
     def load_payment_method!(nonce, credit_card_hash)
       return unless nonce
-      payment_method_hash = FakeBraintree.registry.payment_methods[nonce]
+      payment_method_hash = FakeBraintree.registry.payment_methods[nonce] || {}
       credit_card_hash.merge!(payment_method_hash)
     end
   end
