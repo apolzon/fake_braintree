@@ -127,6 +127,7 @@ module FakeBraintree
         'token' => options[:token],
         'merchant_id' => options[:merchant_id],
         'customer_id' => options[:customer_id],
+        'image_url' => 'https://assets.braintreegateway.com/payment_method_logo/unknown.png',
         'default' => options[:make_default]
       }.merge(credit_card_hash_from_params)
     end
